@@ -1,0 +1,46 @@
+;;; .emacs --- Emacs initialization file -*- lexical-binding: t; -*-
+
+;;; Commentary:
+
+;; Welcome to Emacs (http://go/emacs).
+;;
+;; If you see this file, your homedir was just created on this workstation.
+;; That means either you are new to Google (in that case, welcome!) or you
+;; got yourself a faster machine.
+;;
+;; Either way, the main goal of this configuration is to help you be more
+;; productive; if you have ideas, praise or complaints, direct them to
+;; emacs-users@google.com (http://g/emacs-users).  We'd especially like to hear
+;; from you if you can think of ways to make this configuration better for the
+;; next Noogler.
+;;
+;; If you want to learn more about Emacs at Google, see http://go/emacs.
+
+;;; Code:
+
+;; Use the 'google' package by default.
+(require 'google)
+
+;;; .emacs ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes (quote (tango-dark)))
+ '(inhibit-startup-screen t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; disable ctrl-z so I don't keep pressing it
+(global-unset-key (kbd "C-z"))
+
+;; automatically turn on flycheck mode
+(add-hook 'prog-mode-hook 'flycheck-mode)
+
+;; change window split direction
+(global-set-key (kbd "C-x |") 'toggle-window-split)
